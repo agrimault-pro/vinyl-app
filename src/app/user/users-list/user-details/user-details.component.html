@@ -1,0 +1,20 @@
+<div class="card" style="width: 300px;">
+  <div class="section" style="text-align: center;">
+    <h3>{{user.name}}</h3>
+  </div>
+  <div class="section" style="text-align: center;">
+    <h3>{{user.username}}</h3>
+  </div>
+  <div class="section" style="text-align: center">
+    <h5>{{ user.email }}</h5>
+  </div>
+  <div class="section" style="text-align: center">
+    <div>{{ user.phone }}</div>
+  </div>
+  <div class="section" style="text-align: center">
+    <a href="http://{{user.website}}" target="_blank">{{ user.website }}</a>
+  </div>
+  <div class="section" style="text-align: center">
+    <a [routerLink]="['edit', user.id]" class="button">Update</a>
+  </div>
+</div>

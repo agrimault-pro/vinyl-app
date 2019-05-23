@@ -1,0 +1,8 @@
+<div class="row">
+  <app-vinyl-preview 
+          *ngFor="let vinyl of vinyls; trackBy: trackByFn" 
+          [vinyl]="vinyl"
+          (indexToDelete)="deleteItem($event)"
+          (indexToDisplayStudio)="displayStudio($event)">
+  </app-vinyl-preview>
+</div>

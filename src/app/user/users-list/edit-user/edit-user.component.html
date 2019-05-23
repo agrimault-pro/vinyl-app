@@ -1,0 +1,45 @@
+
+<div class="row" *ngIf="user">
+  <div row="col-md-6">
+  <form (ngSubmit)="updateUser()" #userForm="ngForm">
+    <fieldset>
+      <legend>Edition panel</legend>
+
+      <div class="input-group vertical">
+          <label for="name">Name</label>
+          <input name="name" type="text" id="name" placeholder="name" [(ngModel)]="user.name" required #name="ngModel"/>
+      </div>
+      <div *ngIf="name.dirty && name.hasError('required')">Need a value here</div>
+
+      <div class="input-group vertical">
+        <label for="username">Username</label>
+        <input name="username" type="text" id="username" placeholder="username" [(ngModel)]="user.username" required #username="ngModel"/>
+      </div>
+      <div *ngIf="username.dirty && username.hasError('required')">Need a value here</div>
+
+      <div class="input-group vertical">
+        <label for="email">Email</label>
+        <input name="email" type="text" id="email" placeholder="email" [(ngModel)]="user.email" required #email="ngModel"/>
+      </div>
+      <div *ngIf="email.dirty && email.hasError('required')">Need a value here</div>
+
+      <div class="input-group vertical">
+        <label for="phone">Phone</label>
+        <input name="phone" type="text" id="phone" placeholder="phone" [(ngModel)]="user.phone" #phone="ngModel"/>
+      </div>
+    
+      <div class="input-group vertical">
+        <label for="website">Website</label>
+        <input name="website" type="text" id="website" placeholder="website" [(ngModel)]="user.website" #website="ngModel"/>
+      </div>
+
+      <button class="primary" type="submit" [disabled]="userForm.invalid">Update user</button>
+      <button class="primary" type="button" routerLink="/user">Cancel</button>
+    </fieldset>
+  </form>
+  </div>
+
+  <div row="col-md-6">
+    <app-user-details [user]="user"></app-user-details>
+  </div>
+</div>

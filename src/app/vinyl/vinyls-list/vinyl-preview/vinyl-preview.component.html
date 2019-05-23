@@ -1,0 +1,30 @@
+<div class="card" [class.editing]="isEditing">
+  <div class="section media">
+    <img height="150" [src]="vinyl.imageUrl" alt="Album photo of {{vinyl.title}}" > </div>
+  <div class="section"> <h3>{{vinyl.title}} <br>
+  </h3>
+    <small>
+      par {{vinyl.artiste}}
+    </small>
+    <div class="section" style="text-align: center">
+      <button type="button" (click)="displayStudio()">Voir le studio</button>
+    </div>
+    <div *ngIf="isStudioDisplayed">{{vinyl.studio}}</div>
+  </div>
+  <div class="section" style="text-align: center">
+    <h5 class="bold" [ngStyle]="{color:getDateColor()}">{{vinyl.releaseDate | date:'yyyy'}}</h5> </div>
+    <div class="section" style="text-align: center">
+      <button type="button" (click)="switchEditMode()">Modifier</button>
+    </div>
+    <div *ngIf="isEditing" class="section" style="text-align: center">
+      <app-counting-buttons [(counter)]="vinyl.releaseDate"></app-counting-buttons>
+    </div>
+    <div class="section" style="text-align: center">
+      <button type="button" (click)="deleteItem()">Delete</button>
+    </div>
+
+    <div class="section" style="text-align: center">
+        <a [routerLink]="['edit', vinyl.index]" class="button">Update</a>
+      </div>
+</div>
+

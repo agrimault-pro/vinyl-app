@@ -1,0 +1,42 @@
+<div class="row" *ngIf="vinyl">
+    <div row="col-md-6">
+      <form (ngSubmit)="updateVinyl()" [formGroup]="vinylForm">
+      <fieldset>
+        <legend>Edition panel</legend>
+
+        <div class="input-group vertical">
+            <label for="title">Title</label>
+            <input name="title" type="text" id="title" placeholder="title" formControlName="title"/>
+        </div>
+        <div *ngIf="titleCtrl.dirty && titleCtrl.hasError('required')">Need a value here</div>
+
+        <div class="input-group vertical">
+          <label for="artiste">Artiste</label>
+          <input name="artiste" type="text" id="artiste" placeholder="artiste" formControlName="artiste"/>
+        </div>
+        <div *ngIf="artisteCtrl.dirty && artisteCtrl.hasError('required')">Need a value here</div>
+
+        <div class="input-group vertical">
+          <label for="imageUrl">ImageUrl</label>
+          <input name="imageUrl" type="text" id="imageUrl" placeholder="imageUrl" formControlName="imageUrl"/>
+        </div>
+        <div *ngIf="artisteCtrl.dirty && artisteCtrl.hasError('required')">Need a value here</div>
+
+        <div class="input-group vertical">
+          <label for="releaseDate">ReleaseDate</label>
+          <input name="releaseDate" type="text" id="releaseDate" placeholder="releaseDate" formControlName="releaseDate"/>
+        </div>
+        <div *ngIf="artisteCtrl.dirty && artisteCtrl.hasError('required')">Need a value here</div>
+
+        <div class="input-group vertical">
+          <label for="studio">Studio</label>
+          <input name="studio" type="text" id="studio" placeholder="studio" formControlName="studio"/>
+        </div>
+        <div *ngIf="artisteCtrl.dirty && artisteCtrl.hasError('required')">Need a value here</div>
+
+        <button class="primary" type="submit" [disabled]="vinylForm.invalid">Update vinyl</button>
+        <button class="primary" type="button" routerLink="/vinyl">Cancel</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
